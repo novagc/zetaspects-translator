@@ -1,0 +1,11 @@
+﻿{
+	"name": "ZetAspectsTranslator",
+	"version_number": "1.0.0",
+	"author": "NovaGC",
+	"description": "Translation of the \"ZetAspects\" mod",
+	"website_url": "https://github.com/novagc/zetaspects-translator",
+	"dependencies": [
+		"bbepis-BepInExPack-5.4.2108",
+		"William758-ZetAspects-2.9.2"
+	]
+}
