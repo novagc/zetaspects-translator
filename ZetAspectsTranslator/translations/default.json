@@ -1,0 +1,10 @@
+{
+	"$schema": "./settings.schema.json",
+	"language": "default",
+	"extends": [
+		{
+			"path": "./russian.json",
+			"type": "setting"
+		}
+	]
+}

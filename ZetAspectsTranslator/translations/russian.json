@@ -1,0 +1,10 @@
+{
+	"$schema": "./settings.schema.json",
+	"language": "RU",
+	"extends": [
+		{
+			"path": "./tokens/tokens-ru.json",
+			"type": "tokens"
+		}
+	]
+}
