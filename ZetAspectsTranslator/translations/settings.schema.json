@@ -1,0 +1,52 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Translation Setting",
+	"description": "Localization settings file format for the \"ZetAspects\" mod",
+	"type": "object",
+	"properties": {
+		"$schema": {
+			"type": "string"
+		},
+		"language": {
+			"anyOf": [
+				{
+					"type": "string",
+					"enum": ["default", "RU"]
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"tokens": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"extends": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"path": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string",
+						"enum": ["setting", "tokens"],
+						"default": "tokens"
+					}
+				},
+				"additionalProperties": false,
+				"required": [
+					"path"
+				]
+			}
+		}
+	},
+	"additionalProperties": false,
+	"required": [
+		"language"
+	]
+}
