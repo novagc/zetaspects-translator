@@ -21,9 +21,7 @@ public class TranslationController
         {
             RegisterTokens(translation.Language, translation.Tokens);
          
-            Log.Info(
-                $"Registered {translation.Language} translation.{Environment.NewLine}" +
-                $"Tokens:{Environment.NewLine}{string.Join(Environment.NewLine, translation.Tokens.Select(x => x.Key))}");
+            Log.Info($"Registered {translation.Language} translation ({translation.Tokens.Count} tokens)");
         }
         catch (Exception e)
         {
