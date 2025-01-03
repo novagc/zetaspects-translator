@@ -1,6 +1,5 @@
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using BepInEx;
 using ZetAspectsTranslator.Controllers;
 using ZetAspectsTranslator.Services;
@@ -18,7 +17,8 @@ public class ZetAspectsTranslatorPlugin : BaseUnityPlugin
     public const string Author = "NovaGC";
     public const string Name = "ZetAspectsTranslator";
     public const string Version = "1.0.0";
-
+    public const string BasePath = $"{Author}-{Name}";
+    
     private readonly string[] _schemaFiles =
     [
         "settings.schema.json",
@@ -30,7 +30,9 @@ public class ZetAspectsTranslatorPlugin : BaseUnityPlugin
         Log.Init(Logger);
 
         var pathInPlugin = Path.Combine(
-            Assembly.GetAssembly(GetType()).Location,
+            Paths.PluginPath,
+            BasePath,
+            BasePath,
             "translations"
         );
 
@@ -41,8 +43,6 @@ public class ZetAspectsTranslatorPlugin : BaseUnityPlugin
             "LanguageOverrides",
             "ZetAspects"
         );
-        
-        Log.Info($"\n{pathInPlugin}\n{pathInGame}");
         
         InitFoldersAndSchemas(pathInPlugin, pathInGame);
         
@@ -80,7 +80,7 @@ public class ZetAspectsTranslatorPlugin : BaseUnityPlugin
 
         foreach (var path in requiredFolders.Where(x => !Directory.Exists(x)))
         {
-            Directory.CreateDirectory(pathInGame);
+            Directory.CreateDirectory(path);
         }
 
         var schemasToCopy = _schemaFiles
