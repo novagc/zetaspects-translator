@@ -1,0 +1,14 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Translation Tokens",
+	"description": "Localization tokens file format for the \"ZetAspects\" mod",
+	"type": "object",
+	"properties": {
+		"$schema": {
+			"type": "string"
+		},
+		"additionalProperties": {
+			"type": "string"
+		}
+	}
+}
