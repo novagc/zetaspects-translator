@@ -15,16 +15,16 @@ if(![System.IO.Directory]::Exists("../public")){
 }
 
 rm -r -Force "../public/*"
-mkdir "../public/$($manifestObject.author)-$($manifestObject.name)" > $null
+mkdir "../public/plugins/$($manifestObject.author)-$($manifestObject.name)" > $null
 
 cp ../Thunderstore/* ../public
 cp ../README.md ../public
 cp ../CHANGELOG.md ../public
-cp -Recurse "../$($manifestObject.name)/bin/$configuration/netstandard2.1/*" "../public/$($manifestObject.author)-$($manifestObject.name)"
+cp -Recurse "../$($manifestObject.name)/bin/$configuration/netstandard2.1/*" "../public/plugins/$($manifestObject.author)-$($manifestObject.name)"
 
-rm "../public/$($manifestObject.author)-$($manifestObject.name)/*.deps.json"
+rm "../public/plugins/$($manifestObject.author)-$($manifestObject.name)/*.deps.json"
 $compressConfig = @{
-    Path = "../public"
+    Path = "../public/*"
     CompressionLevel = "Fastest"
     DestinationPath = "../public/$($manifestObject.author)-$($manifestObject.name)-$($manifestObject.version_number).zip"
 }
