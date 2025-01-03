@@ -56,7 +56,7 @@ public class TranslationFileProvider: ITranslationProvider
                     translationStack.Push(extendsSetting);
                 }
 
-                _processedFiles.Add(currentSetting.Path);
+                _processedFiles.Add(new FileInfo(currentSetting.Path).FullName);
             }
             catch (Exception e)
             {
@@ -108,7 +108,9 @@ public class TranslationFileProvider: ITranslationProvider
         }
     }
 
-    private string GetFullPath(string path) => Path.IsPathFullyQualified(path)
-        ? path
-        : Path.Combine(_baseTranslationsPath, path);
+    private string GetFullPath(string path) => new FileInfo(
+            Path.IsPathFullyQualified(path)
+            ? path
+            : Path.Combine(_baseTranslationsPath, path)
+        ).FullName;
 }
