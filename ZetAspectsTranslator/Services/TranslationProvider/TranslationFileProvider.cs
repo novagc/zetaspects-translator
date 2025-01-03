@@ -70,7 +70,7 @@ public class TranslationFileProvider: ITranslationProvider
         if (!File.Exists(setting.Path)) throw new FileNotFoundException(setting.Path);
         if (_processedFiles.Contains(setting.Path)) throw new CyclicalDependenceException(setting.Path);
         
-        if (setting.Type == ExtendsType.Setting)
+        if (setting.Type == ExtendsType.Tokens)
         {
             var tokens = ParseJsonFile<Dictionary<string, string>>(setting.Path);
             MergeTokens(tokens);
